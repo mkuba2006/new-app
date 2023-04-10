@@ -19,6 +19,7 @@ function Area(props){
           });
     }
 
+    
     function submit(e){
         props.onAdd(note);
         newNote({
