@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function Area(props){
 
     const [note, newNote] = useState({
