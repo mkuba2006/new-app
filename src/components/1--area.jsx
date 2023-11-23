@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import img from './plus.png'
 
 function Area(props){
 
@@ -33,9 +33,11 @@ function Area(props){
     return(
         <div>
             <form>
-            <input name="title" value={note.title} onChange={change}/>
-            <textarea name="content" rows="3" value={note.content} onChange={change}/>
-            <button onClick={submit}>Add</button>
+                <input name="title" value={note.title} onChange={change}/>
+                <textarea name="content" rows="3" value={note.content} onChange={change}/>
+                <button onClick={submit} id="button">
+                    <img src={img} id="image"/>
+                </button>
             </form>
         </div>
     )
