@@ -26,11 +26,13 @@ function App(){
         <div>
             <Header/>
             <Area onAdd={add} />
+            <div id="infos">
             {items.map((item, index) => {
                 return(
                 <Input id={index} title={item.title} content={item.content} onDelete={deleteItem}/>
                 )
             })}
+            </div>
         </div>
     )
 }

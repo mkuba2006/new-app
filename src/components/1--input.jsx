@@ -7,7 +7,7 @@ function Input(props){
     }
 
     return(
-        <div>
+        <div id='info'>
             <h1>{props.title}</h1>
             <p>{props.content}</p>
             <button onClick={change}>DELETE</button>
