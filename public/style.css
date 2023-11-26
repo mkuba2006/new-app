@@ -3,73 +3,27 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #27005D;
-    font-family: "neulis-sans", sans-serif;
-    font-weight: 400;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 500;
     font-style: normal;
-}
-header{
-    padding: 10px 0;
-    width: 100%;
-    color: black;
-    background-color: #AED2FF;
-    font-size: 30px;
-    text-align: center;
+
+
+    background-color: #D4F1EF;
 }
 
-form{
-    font-family: "neulis-sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 60px auto 0 auto;
-    padding: 15px 20px 15px 15px;
-    max-width: 400px;
-    background-color: #413f3f;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-input{
-    width: 400px;
-    min-height: 30px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-}
-textarea{
-    font-size: 16px;
-    width: 400px;
-    min-height: 80px;
-    border: none;
-    border-radius: 5px;
-}
-
-#button{
-    width: 20px;
-    border-radius: 50%;
-    border: none;
-    background: none;
+#no{
+    background-color: #D4F1EF;
     display: flex;
-    justify-content: right;
-    width: 100%;
-    transform: translateY(10px);
-    max-height: 20px;
-}
-img{
-    width: 25px;
-    padding: 0;
-    background-color: #FFD966;
-    border-radius: 50px;
-    padding: 10px;
-    color: white;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 50px;
 }
 
 
 #infos{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     gap: 25px 15px;
     align-items: center;
     justify-content: center;
@@ -78,14 +32,28 @@ img{
     padding:  auto;
 }
 
+
+
 #info{
-    background-color: #6499E9;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    border-radius: 10px;
     padding: 4px;
     width: auto;
-    width: 300px;
-    min-height: 150px;
+    min-width: 300px;
+    width: 40vw;
+    border: 1px solid black;
+}
+#first{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#first h1, #first p{
+    margin: 4px;
+    color: #45FFCA;
+}
+ #first p{
+    margin: 4px;
 }

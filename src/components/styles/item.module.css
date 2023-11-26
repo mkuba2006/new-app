@@ -1,0 +1,88 @@
+.notactive {
+    position: fixed;
+    bottom: 0;
+    margin: 0 35vw;
+    padding: 0px 20px 15px 15px;
+    width: 30vw;
+    min-width: 300px;
+    background: none;
+    border-radius: 10px;
+    border: 1px solid rgb(136, 41, 41);
+    transition: all 0.3s;
+    max-height: 26px;
+    overflow-y: hidden;
+    bottom: 20px;
+    cursor: pointer;
+    overflow-x: hidden;
+  }
+  
+  .active {
+    position: fixed;
+    bottom: 0;
+    margin: 0 35vw;
+    padding: 11px 20px 15px 15px;
+    width: 30vw;
+    min-width: 300px;
+    background: none;
+    border-radius: 10px;
+    border: 1px solid rgb(136, 41, 41);
+    transition: all 0.3s;
+    max-height: 200px;
+    bottom: 20px;
+  }
+  
+form:hover{
+    border: 1px solid blue;
+}
+
+form h2{
+    margin: 0;
+    padding-top: 5px;
+    font-weight: 400;
+}
+
+
+
+
+input{
+    padding: 4px 20px 4px 10px;
+    margin-top: 10px;
+    background: none;
+    width: 90%;
+    min-height: 30px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+}
+textarea{
+    padding: 4px 20px 4px 10px;
+    background: none;
+    font-size: 20px;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    height: 1.5em; 
+    resize: none;
+}
+
+.button{
+    width: 45x;
+    border-radius: 50%;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: right;
+    max-height: 45px;
+    margin-left: 92%;
+    transform: translateY(30px);
+}
+
+.image{
+    width: 25px;
+    padding: 0;
+    background-color: blue;
+    border-radius: 50px;
+    padding: 10px;
+    color: white;
+}

@@ -1,0 +1,28 @@
+aside {
+    position: fixed;
+    background-color: white;
+    width: 300px;
+    height: 100vh;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#list{
+    height: 79vh;
+    overflow-y: auto; 
+}
+#addButton{
+    margin: 0 auto;
+    width: 90%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: blue;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 21px;
+    text-align: center;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Input(props){
+export default function Input(props){
     
     function change(){
         props.onDelete(props.id)
@@ -8,13 +8,16 @@ function Input(props){
 
     return(
         <div id='info'>
-            <h1>{props.title}</h1>
-            <p>{props.content}</p>
+            <div id='first'>
+                <h1>{props.title}</h1>
+                <p>{props.content}</p>
+            </div>
+
+            <p>{props.hour}</p>
             <button onClick={change}>DELETE</button>
         </div>
     )
 }
-export default Input;
 
 
 //id
