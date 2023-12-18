@@ -7,7 +7,23 @@ import Tasks from "./1--tasks-aside";
 
 export default function App(){
 
-    const [items, newItem] = useState([]);
+    const [items, newItem] = useState([
+      {
+        title:'pizza',
+        content: 'zrobic pizze',
+        hour:"11 grudnia, 19:44"
+      },
+      {
+        title:'kebab',
+        content: 'zrobic kebaba',
+        hour:"26 listopad, 11:21"
+      },
+      {
+        title:'sushi',
+        content: 'zrobic sushi',
+        hour:"28 lutego, 10:45"
+      }
+    ]);
 
     function add(note) {
         newItem(e =>{ 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import img from './plus.png';
+import task from './note.png'
+import plus from './add.png'
 import classes from './styles/item.module.css';
 
 export default function Area(props) {
@@ -69,26 +71,23 @@ export default function Area(props) {
   return (
     <div>
       <form ref={formRef} className={isActive ? classes.active : classes.notactive}>
-        <h2 onClick={() => setIsActive(true)}> {!isActive ? 'Add Item' : 'Add data' }</h2>
-        <input
-          ref={titleInputRef}
-          placeholder="Title"
-          name="title"
-          value={note.title}
+
+        <h2 onClick={() => setIsActive(!isActive)}>
+          {!isActive ? 'Add Item' : 'Add data' } 
+          <img src={plus} className={classes.image2} alt="plus icon"/>
+        </h2>
+
+        <input ref={titleInputRef} placeholder="Title" name="title" value={note.title} onChange={change}
+          onBlur={updateDateTime}
+          onFocus={() => setIsActive(true)}
+        />
+
+        <textarea ref={contentTextareaRef} placeholder="Content" name="content" rows="3" value={note.content}
           onChange={change}
           onBlur={updateDateTime}
           onFocus={() => setIsActive(true)}
         />
-        <textarea
-          ref={contentTextareaRef}
-          placeholder="Content"
-          name="content"
-          rows="3"
-          value={note.content}
-          onChange={change}
-          onBlur={updateDateTime}
-          onFocus={() => setIsActive(true)}
-        />
+
         <button onClick={() => setIsActive(false)} className={classes.button}>
           <img onClick={submit} src={img} className={classes.image} alt="plus icon" />
         </button>

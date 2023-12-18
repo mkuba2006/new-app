@@ -1,7 +1,9 @@
 aside {
     position: fixed;
     background-color: white;
-    width: 300px;
+    width: 22vw;
+    min-width: 200px;
+    max-width: 300px;
     height: 100vh;
     padding: 25px 20px;
     display: flex;

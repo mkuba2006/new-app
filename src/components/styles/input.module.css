@@ -1,0 +1,27 @@
+.info{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    width: auto;
+    min-width: 300px;
+    width: 40vw;
+    border: none;
+    border-radius: 5px;
+}
+.first{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.first h1, .first p{
+    margin: 4px;
+    color: #45FFCA;
+}
+
+.first p{
+    color: black;
+    margin: 4px;
+}

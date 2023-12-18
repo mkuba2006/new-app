@@ -36,9 +36,15 @@ form:hover{
 }
 
 form h2{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
     margin: 0;
     padding-top: 5px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 
@@ -62,7 +68,7 @@ textarea{
     width: 90%;
     border: none;
     border-radius: 5px;
-    height: 1.5em; 
+    height: 30px;
     resize: none;
 }
 
@@ -76,13 +82,20 @@ textarea{
     max-height: 45px;
     margin-left: 92%;
     transform: translateY(30px);
+    cursor: pointer;
 }
 
 .image{
     width: 25px;
-    padding: 0;
     background-color: blue;
     border-radius: 50px;
     padding: 10px;
     color: white;
+}
+
+.image2{
+    height: 28px;
+    padding: 0;
+    color: white;
+   
 }

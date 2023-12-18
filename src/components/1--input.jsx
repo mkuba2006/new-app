@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './styles/input.module.css'
 
 export default function Input(props){
     
@@ -7,8 +8,8 @@ export default function Input(props){
     }
 
     return(
-        <div id='info'>
-            <div id='first'>
+        <div className={classes.info}>
+            <div className={classes.first}>
                 <h1>{props.title}</h1>
                 <p>{props.content}</p>
             </div>

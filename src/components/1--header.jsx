@@ -6,11 +6,11 @@ export default function Header() {
   const currentTime = new Date().getHours();
   let greeting;
   if (currentTime >= 8 && currentTime < 10) {
-    greeting = 'Good morning';
+    greeting = 'Good morning !';
   } else if (currentTime >= 10 && currentTime < 18) {
-    greeting = 'Good afternoon';
+    greeting = 'Good afternoon !';
   } else {
-    greeting = 'Good evening';
+    greeting = 'Good evening !';
   }
 
   return (
