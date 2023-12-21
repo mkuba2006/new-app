@@ -54,8 +54,10 @@ export default function Area(props) {
     if (note.title == null && note.content == null) {
       return;
     } else {
+      
       props.onAdd({
         title: titleInputRef.current.value,
+
         content: contentTextareaRef.current.value,
         hour: currentDateTime,
       });

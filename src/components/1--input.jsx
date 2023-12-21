@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './styles/input.module.css'
-
+import remove from './close.png'
 export default function Input(props){
     
     function change(){
@@ -15,7 +15,9 @@ export default function Input(props){
             </div>
 
             <p>{props.hour}</p>
-            <button onClick={change}>DELETE</button>
+            <div className={classes.item_panel}>
+                <img src={remove} onClick={change} className={classes.remove}/>
+            </div>
         </div>
     )
 }

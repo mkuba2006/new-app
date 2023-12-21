@@ -16,8 +16,10 @@ export default function Tasks({items}){
                     )
                 })}
             </ul>
-
-            <button id="addButton">Create item</button>
+            
+            <button id="addButton">Create List</button>
+            
+            
         </aside>
     )
 }
