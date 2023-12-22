@@ -1,6 +1,7 @@
 import React from 'react';
-import classes from './styles/input.module.css'
-import remove from './close.png'
+import classes from '../styles/input.module.css'
+
+import remove from '../images/close.png'
 export default function Input(props){
     
     function change(){

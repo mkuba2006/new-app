@@ -3,7 +3,7 @@
     position: fixed;
     bottom: 0;
     margin: 0 35vw;
-    padding: 10px 15px 15px 15px ;
+    padding: 10px 15px 11px 15px ;
     width: 30vw;
     min-width: 300px;
     background: none;
@@ -46,13 +46,13 @@ form h2{
     font-weight: 500;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;;
-
+    font-size: 20px;
 }
 
 
 
 
-input{
+.input{
     padding: 4px 20px 4px 10px;
     margin-top: 10px;
     background: none;
@@ -60,27 +60,48 @@ input{
     min-height: 30px;
     margin-bottom: 10px;
     border: none;
-    border-radius: 5px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;;
-
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 1px solid gray;
 }
+.input:focus {
+    outline: none;
+    animation: linie 1s infinite;
+}
+
+
 textarea{
-    padding: 4px 20px 4px 10px;
+    padding: 8px 20px 4px 10px;
     background: none;
-    font-size: 20px;
     width: 90%;
     border: none;
-    border-radius: 5px;
     height: 30px;
     resize: none;
     font-weight: 500;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;;
-
+    font-size: 18px;
+    border-bottom: 1px solid gray;
 }
+textarea:focus {
+    outline: none;
+    animation: linie 2s infinite;
+}
+
+
+
+@keyframes linie{
+    0%{
+        border-bottom: 1px solid #687EFF;
+    }
+    100%{
+        border-bottom: 1px solid gray;
+    }
+}
+
+
 
 .button{
     width: 45x;

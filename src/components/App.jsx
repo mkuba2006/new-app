@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Header from './1--header';
-import Area from './1--area';
-import Input from './1--input';
-import Tasks from "./1--tasks-aside";
-
+import Header from './elements/1--header';
+import Area from './elements/1--area';
+import Input from './elements/1--input';
+import Tasks from "./elements/1--tasks-aside";
+import Mod_Provider from "./logic/items.provider";
 
 export default function App(){
 
@@ -42,7 +42,7 @@ export default function App(){
 
 
     return (
-        <div>
+        <Mod_Provider>
           <Tasks items={items} />
           <Header />
       
@@ -57,6 +57,6 @@ export default function App(){
 
           <Area onAdd={add} />
 
-        </div>
+        </Mod_Provider>
       );
 }

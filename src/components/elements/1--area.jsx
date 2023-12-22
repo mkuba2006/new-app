@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import img from './plus.png';
-import task from './note.png'
-import plus from './add.png'
-import classes from './styles/item.module.css';
+import img from '../images/plus.png';
+import plus from '../images/add.png'
+import classes from '../styles/item.module.css';
 
 export default function Area(props) {
   const [currentDateTime, setCurrentDateTime] = useState('');
@@ -82,6 +81,7 @@ export default function Area(props) {
         <input ref={titleInputRef} placeholder="Title" name="title" value={note.title} onChange={change}
           onBlur={updateDateTime}
           onFocus={() => setIsActive(true)}
+          className={classes.input}
         />
 
         <textarea ref={contentTextareaRef} placeholder="Content" name="content" rows="3" value={note.content}
