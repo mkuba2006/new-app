@@ -21,12 +21,12 @@
 
 .first h1, .first p{
     margin: 0;
-    color: #45FFCA;
+    color: #200E3A;
 }
 
 .first p{
-    color: black;
-    margin: 4px;
+    color: #471e7cc4;
+    margin: 4px 4px 4px 0;
 }
 
 .remove{

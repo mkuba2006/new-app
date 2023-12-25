@@ -8,13 +8,15 @@ export default function Tasks({ items }) {
     const [showModal, setShowModal] = useState(false);
 
     const push = () => {
-        mtx.addFolder(name.current.value);
+        if(name.current.value !=''){
+            mtx.addFolder(name.current.value);
+        }
+        
         document.getElementById('modal').style.left = '-400px';
         
         setTimeout(() => {
             setShowModal(false);
         }, 400);
-        
         
     };
 
@@ -26,11 +28,17 @@ export default function Tasks({ items }) {
         <aside>
             <h1>Your tasks:</h1>
             <ul id="list">
-                {items.map((item, index) => (
+                {/* {items.map((item, index) => (
                     <li key={index}>
                         <h3>{item.title}</h3>
                     </li>
+                ))} */}
+                {mtx.folders.map((item, index) => (
+                    <li key={index}>
+                        <h3>{item}</h3>
+                    </li>
                 ))}
+
             </ul>
             {showModal && (
                 <div id='modal' className={showModal ? 'animated' : ''}>

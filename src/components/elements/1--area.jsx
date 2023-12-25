@@ -15,19 +15,19 @@ export default function Area(props) {
   const titleInputRef = useRef(null);
   const contentTextareaRef = useRef(null);
 
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (formRef.current && !formRef.current.contains(e.target)) {
-        setIsActive(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleOutsideClick = (e) => {
+  //     if (formRef.current && !formRef.current.contains(e.target)) {
+  //       setIsActive(false);
+  //     }
+  //   };
 
-    document.addEventListener('click', handleOutsideClick);
+  //   document.addEventListener('click', handleOutsideClick);
 
-    return () => {
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener('click', handleOutsideClick);
+  //   };
+  // }, []);
 
   const updateDateTime = () => {
     const now = new Date();
@@ -56,7 +56,6 @@ export default function Area(props) {
       
       props.onAdd({
         title: titleInputRef.current.value,
-
         content: contentTextareaRef.current.value,
         hour: currentDateTime,
       });
@@ -69,12 +68,36 @@ export default function Area(props) {
     }
   }
 
+  const open = () => {
+    setIsActive(!isActive);
+    console.log(isActive);
+  
+    const formElement = document.getElementById('form');
+    if (isActive) {
+      setTimeout(() => {
+        formElement.style.overflow = 'hidden';
+      }, 100);
+    } else {
+      setTimeout(() => {
+        formElement.style.overflow = 'visible';
+      }, 100);
+    }
+  };
+  
+
+
+  const close = () =>{
+    setIsActive(false)
+    document.getElementById('form').style.overflow='hidden';
+  }
+
+
   return (
     <div>
-      <form ref={formRef} className={isActive ? classes.active : classes.notactive}>
+      <form id="form" ref={formRef} className={isActive ? classes.active : classes.notactive}>
 
-        <h2 onClick={() => setIsActive(!isActive)}>
-          {!isActive ? 'Add Item' : 'Add data' } 
+        <h2 onClick={open}>
+          {!isActive ? 'Add Item' : 'Add Item' } 
           <img src={plus} className={classes.image2} alt="plus icon"/>
         </h2>
 
@@ -90,7 +113,7 @@ export default function Area(props) {
           onFocus={() => setIsActive(true)}
         />
 
-        <button onClick={() => setIsActive(false)} className={classes.button}>
+        <button id="sbutton" onClick={close} className={classes.button}>
           <img onClick={submit} src={img} className={classes.image} alt="plus icon" />
         </button>
       </form>

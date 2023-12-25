@@ -1,22 +1,42 @@
 import { useReducer, useState } from "react";
 import Mod_elements from "./items_context";
 
-const Folders= { folders: [], totalAmount: 0 };
+const Folders = {
+    list : []
+};
 
-const work = (old, now)=>{
-    console.log(now);
+// const work = (old, now)=>{
+//     let NewFolders = [...old.list];
+//     if(now.type == 'ADD'){
+//         NewFolders.push(now);
+//         console.log(now);
+//         console.log(old);
+//         console.log(NewFolders);
+
+//     }
+//     return {
+//         list: NewFolders,
+//     };
+// }
+const work = (prevent,folder)=>{
+    let NewFolders = [...prevent.list];
+    NewFolders.push(folder);
+    console.log(NewFolders);
+    return {
+        list: NewFolders,
+    };
 }
 
 
 const Mod_Provider = (props) =>{
-    const [folders, action] = useReducer(work,Folders)
+    const [foldersA, action] = useReducer(work,Folders)
 
 
-    const addFolder = (folder) =>{action({type: 'ADD', folder: folder})};
+    const addFolder = (folder) =>{action(folder)};
     const removeFolder =(folder) =>{action({type: 'REMOVE', folder: folder})};
 
     const context ={
-        folders: folders,
+        folders: foldersA.list,
         addFolder: addFolder,
         removeFolder: removeFolder,
     }
