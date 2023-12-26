@@ -5,23 +5,17 @@ const Folders = {
     list : []
 };
 
-// const work = (old, now)=>{
-//     let NewFolders = [...old.list];
-//     if(now.type == 'ADD'){
-//         NewFolders.push(now);
-//         console.log(now);
-//         console.log(old);
-//         console.log(NewFolders);
-
-//     }
-//     return {
-//         list: NewFolders,
-//     };
-// }
 const work = (prevent,folder)=>{
     let NewFolders = [...prevent.list];
-    NewFolders.push(folder);
+    let f = {
+        folder,
+        tasks: []
+    }
+
+    NewFolders.push(f);
     console.log(NewFolders);
+
+
     return {
         list: NewFolders,
     };
@@ -32,7 +26,7 @@ const Mod_Provider = (props) =>{
     const [foldersA, action] = useReducer(work,Folders)
 
 
-    const addFolder = (folder) =>{action(folder)};
+    const addFolder = (folder) =>{action({folder})};
     const removeFolder =(folder) =>{action({type: 'REMOVE', folder: folder})};
 
     const context ={
@@ -49,3 +43,23 @@ const Mod_Provider = (props) =>{
 
 }
 export default Mod_Provider;
+
+
+
+
+
+
+
+// const work = (old, now)=>{
+//     let NewFolders = [...old.list];
+//     if(now.type == 'ADD'){
+//         NewFolders.push(now);
+//         console.log(now);
+//         console.log(old);
+//         console.log(NewFolders);
+
+//     }
+//     return {
+//         list: NewFolders,
+//     };
+// }

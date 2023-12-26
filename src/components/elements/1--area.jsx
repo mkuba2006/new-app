@@ -6,28 +6,16 @@ import classes from '../styles/item.module.css';
 export default function Area(props) {
   const [currentDateTime, setCurrentDateTime] = useState('');
   const [note, setNote] = useState({
-    title: null,
-    content: null,
+    title: "",
+    content: "",
   });
+  
   const [isActive, setIsActive] = useState(false);
 
   const formRef = useRef(null);
   const titleInputRef = useRef(null);
   const contentTextareaRef = useRef(null);
 
-  // useEffect(() => {
-  //   const handleOutsideClick = (e) => {
-  //     if (formRef.current && !formRef.current.contains(e.target)) {
-  //       setIsActive(false);
-  //     }
-  //   };
-
-  //   document.addEventListener('click', handleOutsideClick);
-
-  //   return () => {
-  //     document.removeEventListener('click', handleOutsideClick);
-  //   };
-  // }, []);
 
   const updateDateTime = () => {
     const now = new Date();

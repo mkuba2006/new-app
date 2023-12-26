@@ -43,7 +43,7 @@ export default function App(){
 
     return (
         <Mod_Provider>
-          <Tasks items={items} />
+          <Tasks items={items} key={Math.random()} />
           <Header />
       
           {items.length === 0 ? (<p id="no">You got no plans</p>) : 

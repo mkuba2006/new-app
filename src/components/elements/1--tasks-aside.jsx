@@ -6,39 +6,25 @@ export default function Tasks({ items }) {
     const mtx = useContext(Mod_elements);
     const name = useRef(null);
     const [showModal, setShowModal] = useState(false);
+    const act = () => setShowModal(true);
 
     const push = () => {
-        if(name.current.value !=''){
-            mtx.addFolder(name.current.value);
-        }
-        
+        name.current.value && mtx.addFolder(name.current.value);
         document.getElementById('modal').style.left = '-400px';
-        
-        setTimeout(() => {
-            setShowModal(false);
-        }, 400);
-        
+        setTimeout(() => setShowModal(false), 400);
     };
 
-    const act = () => {
-        setShowModal(true)
-    }
+
 
     return (
         <aside>
             <h1>Your tasks:</h1>
             <ul id="list">
-                {/* {items.map((item, index) => (
-                    <li key={index}>
-                        <h3>{item.title}</h3>
-                    </li>
-                ))} */}
                 {mtx.folders.map((item, index) => (
                     <li key={index}>
-                        <h3>{item}</h3>
+                        <h3>{item.folder.folder}</h3>
                     </li>
                 ))}
-
             </ul>
             {showModal && (
                 <div id='modal' className={showModal ? 'animated' : ''}>
