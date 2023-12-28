@@ -5,36 +5,36 @@ const Folders = {
     list : []
 };
 
-const work = (prevent,folder)=>{
-    let NewFolders = [...prevent.list];
-    let f = {
-        folder,
-        tasks: []
+const work = (prevState, action) => {
+    console.log([...prevState.list, { folder: action.folder, tasks: [] }]);
+    if (action.type === 'ADD') {
+        return {
+            list: [...prevState.list, { folder: action.folder, tasks: [] }],
+        };
+    } else{
+        const updatedFolders = prevState.list.filter(
+            (item) => item.folder !== action.folder
+        );
+        return {
+            list: updatedFolders,
+        };
     }
-
-    NewFolders.push(f);
-    console.log(NewFolders);
+};
 
 
-    return {
-        list: NewFolders,
-    };
-}
 
 
 const Mod_Provider = (props) =>{
     const [foldersA, action] = useReducer(work,Folders)
+    const addFolder = (folder) => {action({type: 'ADD', folder})};
+    const removeFolder = (folder) => {action({ type: 'REMOVE', folder });};
 
-
-    const addFolder = (folder) =>{action({folder})};
-    const removeFolder =(folder) =>{action({type: 'REMOVE', folder: folder})};
-
+    
     const context ={
         folders: foldersA.list,
         addFolder: addFolder,
         removeFolder: removeFolder,
     }
-
     return(
         <Mod_elements.Provider value={context}>
             {props.children}

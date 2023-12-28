@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import img from '../images/plus.png';
 import plus from '../images/add.png'
 import classes from '../styles/item.module.css';
+import Mod_elements from '../logic/items_context';
 
 export default function Area(props) {
+  const mtx = useContext(Mod_elements);
   const [currentDateTime, setCurrentDateTime] = useState('');
   const [note, setNote] = useState({
     title: "",
@@ -11,7 +13,6 @@ export default function Area(props) {
   });
   
   const [isActive, setIsActive] = useState(false);
-
   const formRef = useRef(null);
   const titleInputRef = useRef(null);
   const contentTextareaRef = useRef(null);
@@ -38,15 +39,16 @@ export default function Area(props) {
   function submit(e) {
     e.preventDefault();
     updateDateTime();
-    if (note.title == null && note.content == null) {
+    if (!(note.title || note.content)) {
+      e.preventDefault();
       return;
-    } else {
-      
-      props.onAdd({
+    }else {
+      const newNote = {
         title: titleInputRef.current.value,
         content: contentTextareaRef.current.value,
         hour: currentDateTime,
-      });
+      };
+      props.onAdd(newNote);
       setNote({
         title: null,
         content: null,
@@ -58,21 +60,10 @@ export default function Area(props) {
 
   const open = () => {
     setIsActive(!isActive);
-    console.log(isActive);
-  
-    const formElement = document.getElementById('form');
-    if (isActive) {
-      setTimeout(() => {
-        formElement.style.overflow = 'hidden';
-      }, 100);
-    } else {
-      setTimeout(() => {
-        formElement.style.overflow = 'visible';
-      }, 100);
-    }
+    setTimeout(() => {
+      document.getElementById('form').style.overflow = isActive ? 'hidden' : 'visible';
+    }, 100);
   };
-  
-
 
   const close = () =>{
     setIsActive(false)
@@ -82,29 +73,50 @@ export default function Area(props) {
 
   return (
     <div>
-      <form id="form" ref={formRef} className={isActive ? classes.active : classes.notactive}>
-
-        <h2 onClick={open}>
-          {!isActive ? 'Add Item' : 'Add Item' } 
-          <img src={plus} className={classes.image2} alt="plus icon"/>
-        </h2>
-
-        <input ref={titleInputRef} placeholder="Title" name="title" value={note.title} onChange={change}
-          onBlur={updateDateTime}
-          onFocus={() => setIsActive(true)}
-          className={classes.input}
-        />
-
-        <textarea ref={contentTextareaRef} placeholder="Content" name="content" rows="3" value={note.content}
-          onChange={change}
-          onBlur={updateDateTime}
-          onFocus={() => setIsActive(true)}
-        />
-
-        <button id="sbutton" onClick={close} className={classes.button}>
-          <img onClick={submit} src={img} className={classes.image} alt="plus icon" />
-        </button>
-      </form>
+      {mtx.folders.length !== 0 && (
+        <form id="form" ref={formRef} className={isActive ? classes.active : classes.notactive}>
+          <h2 onClick={open}>
+            {!isActive ? 'Add Item' : 'Add Item' } 
+            <img src={plus} className={classes.image2} alt="plus icon"/>
+          </h2>
+  
+          <input
+            ref={titleInputRef}
+            placeholder="Title"
+            name="title"
+            onChange={change}
+            onBlur={updateDateTime}
+            onFocus={() => setIsActive(true)}
+            className={classes.input}
+          />
+  
+          <textarea
+            ref={contentTextareaRef}
+            placeholder="Content"
+            name="content"
+            rows="3"
+            onChange={change}
+            onBlur={updateDateTime}
+            onFocus={() => setIsActive(true)}
+          />
+  
+          <select defaultValue="default">
+            <option value="default" disabled hidden>Wybierz folder</option>
+            {mtx.folders.map((item, index) => (
+              <option key={index} value={item.folder}>
+                {item.folder}
+              </option>
+            ))}
+          </select>
+  
+          <button id="sbutton" onClick={close} className={classes.button}>
+            <img onClick={submit} src={img} className={classes.image} alt="plus icon" />
+          </button>
+        </form>
+      )}
+  
+      {mtx.folders.length === 0 && <p className={classes.warn1}>To add a task, you must have at least 1 folder</p>}
     </div>
   );
+  
 }

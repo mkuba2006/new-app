@@ -1,39 +1,47 @@
 import React, { useContext, useState, useRef } from 'react';
 import '../styles/tasks.css';
 import Mod_elements from '../logic/items_context';
+import Bin from '../images/delete.png'
 
-export default function Tasks({ items }) {
+
+export default function Tasks() {
     const mtx = useContext(Mod_elements);
-    const name = useRef(null);
+    const nameInputRef = useRef(null);
     const [showModal, setShowModal] = useState(false);
-    const act = () => setShowModal(true);
 
-    const push = () => {
-        name.current.value && mtx.addFolder(name.current.value);
-        document.getElementById('modal').style.left = '-400px';
-        setTimeout(() => setShowModal(false), 400);
+    const openModal = () => setShowModal(true);
+
+    const closeModal = () => {
+        nameInputRef.current.value && mtx.addFolder(nameInputRef.current.value);
+        setShowModal(false);
     };
 
-
+    const undo = (item) => {
+        console.log('Deleted', item);
+        mtx.removeFolder(item);
+    };
 
     return (
         <aside>
             <h1>Your tasks:</h1>
             <ul id="list">
-                {mtx.folders.map((item, index) => (
-                    <li key={index}>
-                        <h3>{item.folder.folder}</h3>
+                {mtx.folders.map((item) => (
+                    <li key={item.folder}>
+                        <h3>
+                            {item.folder}
+                            <img id='bin' src={Bin} onClick={() => undo(item.folder)} />
+                        </h3>
                     </li>
                 ))}
             </ul>
             {showModal && (
-                <div id='modal' className={showModal ? 'animated' : ''}>
-                    <input placeholder="Place name..." id='folder_name' type='text' ref={name} />
-                    <button id='folder_submit' onClick={push}>Submit</button>
+                <div id='modal' className='animated'>
+                    <input placeholder="Place name..." id='folder_name' type='text' ref={nameInputRef} />
+                    <button id='folder_submit' onClick={closeModal}>Submit</button>
                 </div>
             )}
-    
-            <button id="addButton" onClick={act}>Create List</button>
+
+            <button id="addButton" onClick={openModal}>Create List</button>
         </aside>
     );
 }

@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+.warn1 {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    max-height: 26px;
+    cursor: pointer;
+}
+
+
 .notactive {
     position: fixed;
     bottom: 0;
@@ -31,6 +42,7 @@
     max-height: 200px;
     bottom: 20px;
     overflow-y: hidden;
+    overflow-x: hidden;
   }
   
 form:hover{
@@ -113,11 +125,11 @@ textarea:focus {
     justify-content: right;
     max-height: 45px;
     margin-left: 92%;
-    transform: translateY(30px);
+    transform: translateY(25px);
     cursor: pointer;
     font-weight: 500;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;;
+    font-family: 'Montserrat', sans-serif;
     transition: 0.4s;
 }
 .button:hover{
@@ -137,5 +149,21 @@ textarea:focus {
     height: 28px;
     padding: 0;
     color: white;
-   
+}
+
+select{
+    clear: both;
+    min-width: 100px;
+    background: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    padding: 3px 6px;
+    border: none;
+    border-bottom: 1px solid gray;
+    color: gray;
+}
+#opt {
+    border-radius: 0px;
+    padding: 3px 6px;
+    background-color: rgb(121, 79, 25);
 }

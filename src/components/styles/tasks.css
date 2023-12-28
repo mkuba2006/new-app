@@ -28,7 +28,7 @@ aside h1 {
     margin: 1px 0;
     padding: 5px;
 }
-#list li h3{
+#list li h3 {
     cursor: pointer;
     width: 90%;
     border-radius: 8px;
@@ -36,7 +36,24 @@ aside h1 {
     padding: 6px 8px 7px 8px;
     display: flex;
     transition: 0.4s;
+    justify-content: space-between;
+    align-items: center;
 }
+
+#bin {
+    opacity: 0;
+    transition: 0.4s;
+    width: 22px;
+    padding: 4px;
+    border-radius: 6px;
+}
+#bin:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+#list li h3:hover #bin {
+    opacity: 1;
+}
+
 #list li h3:hover{
     background-color: rgba(0, 0, 0, 0.1);
 }
