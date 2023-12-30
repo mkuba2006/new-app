@@ -2,7 +2,12 @@ import { useReducer, useState } from "react";
 import Mod_elements from "./items_context";
 
 const Folders = {
-    list : []
+    list : [
+        {
+            "folder": "Food",
+            "tasks": []
+        }
+    ]
 };
 
 const work = (prevState, action) => {
@@ -11,7 +16,8 @@ const work = (prevState, action) => {
         return {
             list: [...prevState.list, { folder: action.folder, tasks: [] }],
         };
-    } else{
+    } 
+    else if(action.type === 'REMOVE'){
         const updatedFolders = prevState.list.filter(
             (item) => item.folder !== action.folder
         );
@@ -19,7 +25,11 @@ const work = (prevState, action) => {
             list: updatedFolders,
         };
     }
+    else{
+        console.log(action);
+    }
 };
+
 
 
 
@@ -29,11 +39,14 @@ const Mod_Provider = (props) =>{
     const addFolder = (folder) => {action({type: 'ADD', folder})};
     const removeFolder = (folder) => {action({ type: 'REMOVE', folder });};
 
+
+    const addItem = (item) => {action({ type: 'ITEM', item });};
     
     const context ={
         folders: foldersA.list,
         addFolder: addFolder,
         removeFolder: removeFolder,
+        addItem: addItem,
     }
     return(
         <Mod_elements.Provider value={context}>

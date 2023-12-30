@@ -6,7 +6,7 @@ const Mod_elements = React.createContext({
   addFolder: (name)=>{},
   removeFolder: (name)=>{},
 
-  // addItem: (item) => {},
+  addItem: (item) => {},
   // removeItem: (id) => {}
 
 });
