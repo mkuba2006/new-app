@@ -11,7 +11,7 @@ export default function Input(props) {
     return (
       <div className={classes.info}>
         <div className={classes.first}>
-          <h1>{props.title || ''}</h1>
+          <h1>{props.title || ''}<span className={classes.folder}>{`(${props.folder})` || ''}</span></h1>
           <p>{props.content || ''}</p>
         </div>
   

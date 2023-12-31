@@ -12,8 +12,8 @@ const Select = forwardRef(({ onSelectChange }, ref) => {
     };
 
     return (
-        <select defaultValue="default" ref={ref} onChange={handleChange}>
-            <option value="default" disabled hidden>Wybierz folder</option>
+        <select defaultValue="none" ref={ref} onChange={handleChange}>
+            <option value="none" disabled hidden>Wybierz folder</option>
             {mtx.folders.map((item, index) => (
                 <option key={index} value={item.folder}>
                     {item.folder}

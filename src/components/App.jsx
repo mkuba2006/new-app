@@ -11,17 +11,20 @@ export default function App(){
       {
         title:'pizza',
         content: 'zrobic pizze',
-        hour:"11 grudnia, 19:44"
+        hour:"11 grudnia, 19:44",
+        folder:"food"
       },
       {
         title:'kebab',
         content: 'zrobic kebaba',
-        hour:"26 listopad, 11:21"
+        hour:"26 listopad, 11:21",
+        folder:"food"
       },
       {
         title:'sushi',
         content: 'zrobic sushi',
-        hour:"28 lutego, 10:45"
+        hour:"28 lutego, 10:45",
+        folder:"food"
       }
     ]);
 
@@ -50,7 +53,7 @@ export default function App(){
           (
             <div id="infos">
               {items.map((item, index) => (
-                <Input key={index} id={index} title={item.title} content={item.content} hour={item.hour} onDelete={deleteItem} />
+                <Input key={index} id={index} title={item.title} folder={item.folder} content={item.content} hour={item.hour} onDelete={deleteItem} />
               ))}
             </div>
           )}

@@ -12,7 +12,7 @@ import Select from "./1--area-select";
 export default function Area(props) {
   const mtx = useContext(Mod_elements);
   const [currentDateTime, setCurrentDateTime] = useState('');
-  const [note, setNote] = useState({title: "",content: "",});
+  const [note, setNote] = useState({title: "",content: "",folder: ""});
   const [isActive, setIsActive] = useState(false);
   const formRef = useRef(null);
   const titleInputRef = useRef(null);
@@ -34,19 +34,24 @@ export default function Area(props) {
     e.preventDefault();
     updateDateTime();
   
-    if (!(note.title || note.content)) return;
+    if (!titleInputRef.current.value||!contentTextareaRef.current.value||(!selectRef.current.value||selectRef.current.value=="none"||selectRef.current.value=="")){
+      return;
+    }
   
     const newNote = {
       title: titleInputRef.current.value,
       content: contentTextareaRef.current.value,
       hour: currentDateTime,
+      folder: selectRef.current.value
     };
   
     props.onAdd(newNote);
-    mtx.addItem(newNote)
+    console.log(newNote);
+    // mtx.addItem(newNote);
     setNote({ title: null, content: null });
     titleInputRef.current.value = null;
     contentTextareaRef.current.value = null;
+    selectRef.current.value = null;
   };
 
 
