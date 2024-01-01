@@ -32,7 +32,7 @@ export default function App(){
         newItem(e =>{ 
             return[...e, note];
         })
-        console.log(items);
+        // console.log(items);
     }
 
     function deleteItem(id) {

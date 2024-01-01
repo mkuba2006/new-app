@@ -34,21 +34,22 @@ export default function Area(props) {
     e.preventDefault();
     updateDateTime();
   
-    if (!titleInputRef.current.value||!contentTextareaRef.current.value||(!selectRef.current.value||selectRef.current.value=="none"||selectRef.current.value=="")){
+    if (!titleInputRef.current.value||!contentTextareaRef.current.value||(!selectRef.current.value||selectRef.current.value==="none"||selectRef.current.value==="")){
       return;
     }
   
     const newNote = {
+      folder: selectRef.current.value,
       title: titleInputRef.current.value,
       content: contentTextareaRef.current.value,
-      hour: currentDateTime,
-      folder: selectRef.current.value
+      hour: currentDateTime
     };
   
     props.onAdd(newNote);
-    console.log(newNote);
-    // mtx.addItem(newNote);
-    setNote({ title: null, content: null });
+    
+    mtx.addItem(newNote);
+
+    setNote({ title: null, content: null, folder: null });
     titleInputRef.current.value = null;
     contentTextareaRef.current.value = null;
     selectRef.current.value = null;
@@ -56,6 +57,7 @@ export default function Area(props) {
 
 
   const handleSelectChange = (selectedValue) => {
+    console.clear();
     console.log("Wybrany folder:", selectRef.current.value);
   };
 

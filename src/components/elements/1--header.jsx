@@ -4,7 +4,6 @@ import '../styles/header.css';
 
 export default function Header() {
   const currentTime = new Date().getHours();
-  console.log(currentTime);
   let greeting;
   if (currentTime >= 8 && currentTime < 10) {
     greeting = 'Good morning !';
