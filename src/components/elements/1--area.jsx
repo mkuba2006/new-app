@@ -47,7 +47,7 @@ export default function Area(props) {
   
     props.onAdd(newNote);
     
-    mtx.addItem(newNote);
+    mtx.addItem(newNote, mtx.folders);
 
     setNote({ title: null, content: null, folder: null });
     titleInputRef.current.value = null;

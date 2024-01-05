@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import Mod_elements from "./items_context";
 
 const Folders = {
@@ -26,27 +26,19 @@ const work = (prevState, action) => {
         };
     }
     else if (action.type === 'ITEM') {
-        const { folder, item } = action;
-        
-        console.log(prevState);
+        const { folders, item } = action;
     
-        // Use prevState.list.find to get the correct folder
-        const existingFolder = prevState.list.find((f) => f.folder === folder);
+        const updatedList = folders.map((f) =>
+            f.folder === item.folder
+                ? { ...f, tasks: [...f.tasks, item] }
+                : f
+        );
     
-        // Check if the folder exists before updating
-        if (existingFolder) {
-            const updatedList = prevState.list.map((f) =>
-                f.folder === folder ? { ...f, tasks: [...f.tasks, item] } : f
-            );
-    
-            return {
-                list: updatedList,
-            };
-        } else {
-            // If folder doesn't exist, you might want to handle this case
-            console.error(`Folder "${folder}" not found in the state.`);
-            return prevState;
-        }
+        console.log(updatedList);
+
+        return {
+            list: updatedList,
+        };
     }
     
 };
@@ -63,8 +55,8 @@ const Mod_Provider = (props) =>{
     const addFolder = (folder) => {action({type: 'ADD', folder})};
     const removeFolder = (folder) => {action({ type: 'REMOVE', folder })};
     
-    const addItem = (item) => {
-        action({ type: 'ITEM', item });
+    const addItem = (item,folders) => {
+        action({ type: 'ITEM', item, folders });
     };
     
 
