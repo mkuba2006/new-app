@@ -5,7 +5,8 @@ import remove from '../images/close.png'
 
 export default function Input(props) {
     function change() {
-      props.onDelete(props.id);
+      // props.onDelete(props.id);
+      return;
     }
   
     return (
